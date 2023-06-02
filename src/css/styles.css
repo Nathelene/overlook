@@ -1,3 +1,45 @@
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  width: 100vw;
+  height:100vw;
+  display:flex;
+  flex-direction: column;
+  position:fixed
+}
+
+nav {
+  display:flex;
+  width:97vw;
+  height:20vh;
+  background-color: cadetblue;
+  align-items: center;
+  border-radius: 5px;
+  margin: .5% .5% .5% 1%
+}
+
+main {
+  display:flex;
+  width: 98.5%;
+  height: 80vh;
+}
+
+.total-spending {
+display: flex;
+flex-direction: column;
+align-items: center;
+height:15vw;
+width: 20vw;
+background-color: cornflowerblue;
+border-radius: 5px;
+margin: .5% 1% .5% 1%
+}
+
+.main-panel {
+display:flex;
+justify-content: center;
+height:73vh;
+width:100%;
+background-color:darkcyan;
+border-radius: 5px;
+margin: .5% .5% .5% 1%
 }
