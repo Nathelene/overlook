@@ -9,6 +9,7 @@ const fetchApi = type => {
 
 const savePromises = () => Promise.all([fetchApi('customers'),fetchApi('rooms'),fetchApi('bookings')])
 
+
 export {
     savePromises
 }

@@ -4,20 +4,25 @@
 //     })
 // }
 
-// const calculateTotalCostOfUsersBookings = (customer,rooms) => {
-//     return rooms.reduce((acc,room) => {
-//       bookings.forEach(booking => {
-//       if (customer.id === booking.userID && booking.roomNumber === room.number){
-//             acc += room.costPerNight
-//         }
-//       })
-//       return acc
-//     },0)
-// }
 
 
-// export {
-//     filterBookingsByUser,
-//     calculateTotalCostOfUsersBookings,
+const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
+    return rooms.reduce((acc,room) => {
+        console.log(customer)
+      bookings.forEach(booking => {
+      
+      if (customer.id === booking.userID && booking.roomNumber === room.number){
+    
+            acc += room.costPerNight
+        }
+      })
+      return acc
+    },0)
+}
 
-// }
+
+export {
+    // filterBookingsByUser,
+    calculateTotalCostOfUsersBookings,
+
+}

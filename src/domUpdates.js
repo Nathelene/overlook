@@ -2,8 +2,8 @@ import { filterBookingsByUser,calculateTotalCostOfUsersBookings } from "./bookin
 
 // Global Variables
 const customer = document.querySelector('.customer')
+let totalSpent = document.querySelector('.total-spent')
 let userID
-
 
 
 
@@ -11,23 +11,20 @@ let userID
 
 const getRandom = array => Math.floor(Math.random() * array.length);
 
-const loadNewUser = (userData) => {
+const loadNewUser = (userData,rooms,bookings) => {
     let userIndex = getRandom(userData) 
-   
     customer.innerText = userData[userIndex].name
-       
+    let user = userData[userIndex]
+    totalSpent.innerText = `${calculateTotalCostOfUsersBookings(user,rooms,bookings)}`
     }
-
-
-
-
-
 
 
 
 export{
 customer,
 userID,
+totalSpent,
 getRandom,
 loadNewUser,
+// loadTotalSpent
 }
