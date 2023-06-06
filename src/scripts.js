@@ -25,3 +25,4 @@ window.addEventListener('load', () => {
             loadNewUserInfo(customers,rooms,bookings)
         });
 });
+

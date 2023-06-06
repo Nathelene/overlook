@@ -51,7 +51,7 @@ margin: .5% 1% .5% 51%
   flex-wrap: wrap;
   justify-content: center;
   height:73vh;
-  width:100%;
+  width:75vw;
   background-color:darkcyan;
   border-radius: 5px;
   margin: .5% .5% .5% 1%
@@ -69,3 +69,33 @@ margin: .5% 1% .5% 51%
   h1 {
     margin-left: 5%;
   }
+
+  .add-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 55vh;
+    width:20vw;
+    margin: .5% .5% .5% 1%;
+    border-radius: 5px;
+    background-color:darkcyan;
+  }
+
+  #search-bar {
+    width: 10vw;
+    margin: .5% .5% .5% 1%;
+    border-radius: 3px;
+    border:none;
+    height: 7%;
+    width:60%
+  }
+
+
+#make-booking {
+  background-color: aliceblue;
+  border-radius: 3px;
+  margin: 5% .5% .5% 1%;
+  border: none;
+}
+
+

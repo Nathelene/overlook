@@ -47,7 +47,7 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
 }
 
 const filterRoomsByDate = (date,rooms,bookings) => {
-  if(date === "") {
+  if(date === "" || date.length < 8) {
     return "INVALID DATE"
   }
 
