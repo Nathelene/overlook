@@ -7,7 +7,7 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
 import { savePromises } from './apiCalls';
-import { loadNewUser, loadTotalSpent } from './domUpdates';
+import { loadNewUserInfo } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -22,7 +22,6 @@ window.addEventListener('load', () => {
             customers = data[0].customers
             rooms = data[1].rooms
             bookings = data[2].bookings
-            loadNewUser(customers,rooms,bookings)
-            // loadTotalSpent(customers,rooms,bookings)
+            loadNewUserInfo(customers,rooms,bookings)
         });
 });
