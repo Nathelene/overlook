@@ -1,3 +1,71 @@
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  width: 100vw;
+  height:100vw;
+  display:flex;
+  flex-direction: column;
+  position:fixed
 }
+
+nav {
+  display:flex;
+  width:97vw;
+  height:20vh;
+  background-color: cadetblue;
+  align-items: center;
+  border-radius: 5px;
+  margin: .5% .5% .5% 1%;
+}
+
+.nav-user {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:10vw;
+  height:16vh;
+  margin: .75% 1% 1% 2%;
+  background-color: azure;
+  border-radius: 5px;
+}
+
+main {
+  display:flex;
+  width: 98.5%;
+  height: 80vh;
+}
+
+.total-spending {
+display: flex;
+flex-direction: column;
+align-items: center;
+width:10vw;
+height:16vh;
+background-color: cornflowerblue;
+border-radius: 5px;
+margin: .5% 1% .5% 51%
+
+}
+
+.main-panel {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height:73vh;
+  width:100%;
+  background-color:darkcyan;
+  border-radius: 5px;
+  margin: .5% .5% .5% 1%
+  }
+
+  .booking-container {
+    display:inline-block;
+    font-size: 1.5vw;
+    height: 14vh;
+    width:15vw;
+    margin: 2% 0% 0% 4%;
+    font-size: 1.3vw;
+  }
+
+  h1 {
+    margin-left: 5%;
+  }
