@@ -125,7 +125,7 @@ describe('calculateTotalCostOfUserBookings', function() {
       expect(result).to.equal('INVALID DATE')
   });
   });
-  
+
   describe('filterRoomsByType', function() {
     it('should be a function', function() {
       expect(filterRoomsByType).to.be.a('function');
