@@ -78,6 +78,11 @@ margin: .5% 1% .5% 51%
     margin-left: 5%;
   }
 
+  h3 {
+    margin-bottom: 10%;
+    font-size: 3.2vh;
+  }
+
   .add-booking {
     display: flex;
     flex-direction: column;
