@@ -4,7 +4,7 @@ import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByDat
 const customer = document.querySelector('.customer')
 let totalSpent = document.querySelector('.total-spent')
 let totalBookings = document.querySelector('.all-bookings')
-let bookingButton = document.querySelector('#make-booking')
+let bookingButton = document.querySelector('#search-bookings')
 let searchResults = document.querySelector('.display-results')
 let userDateInput = document.querySelector('#search-bar-date')
 let userRoomInput = document.querySelector('#search-bar-room')
@@ -38,6 +38,7 @@ let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box">
 <p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
+<button id="make-booking">BOOK ROOM</button>
 </div>`
 })
 
