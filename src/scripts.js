@@ -45,7 +45,7 @@ bookingButton.addEventListener('click', () => {
 
 
 
-    searchResults.addEventListener('click', event => {
+searchResults.addEventListener('click', event => {
     date = userDateInput.value
     roomNumber = Number(event.target.id)
     postApi(userID,date,roomNumber)
