@@ -27,7 +27,7 @@ const loadNewUserInfo = (userData,rooms,bookings) => {
     usersBookings.forEach(booking => {
         totalBookings.innerHTML += 
         `<div class ="booking-container box">
-            <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: ${booking.cost}</p>
+            <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
         </div>`
       })
     }
@@ -46,12 +46,28 @@ searchResults.innerHTML +=  `<div class ="result-container box">
 </div>`
     })
 }
-
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     searchResults.innerHTML =  
     ` <p>NO ROOMS AVAILABLE</p>`
     }
+ displayUserSearchError()
+}
 
+const displayUserSearchError = () => {
+    if(!userDateInput.value) {
+        userDateInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
+        searchResults.innerHTML =  
+        ` <p>PLEASE SELECT DATE</p>`
+    }
+    if(!userRoomInput.value) {
+        userRoomInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
+        searchResults.innerHTML =  
+        ` <p>PLEASE SELECT ROOM TYPE</p>`
+    } 
+    if(!userRoomInput.value && !userDateInput.value){
+        searchResults.innerHTML =  
+        ` <p>PLEASE SELECT DATE AND ROOM TYPE</p>`
+    } 
 }
 
 export {
@@ -67,4 +83,5 @@ addBookingButton,
 addNewBooking,
 getRandom,
 loadNewUserInfo,
+displayUserSearchError
 }
