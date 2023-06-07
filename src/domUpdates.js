@@ -70,6 +70,11 @@ const displayUserSearchError = () => {
     } 
 }
 
+const displayBookingMadeMessage = () => {
+    searchResults.innerHTML =  
+    ` <p>THANK YOU! YOUR BOOKING HAS BEEN MADE</p>`
+}
+
 export {
 customer,
 userID,
@@ -83,5 +88,6 @@ addBookingButton,
 addNewBooking,
 getRandom,
 loadNewUserInfo,
-displayUserSearchError
+displayUserSearchError,
+displayBookingMadeMessage
 }
