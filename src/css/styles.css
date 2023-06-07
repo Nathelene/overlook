@@ -1,4 +1,8 @@
 
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   width: 100vw;
   height:100vw;
@@ -9,12 +13,12 @@ body {
 
 nav {
   display:flex;
-  width:97vw;
+  width:99vw;
   height:20vh;
   background-color: cadetblue;
   align-items: center;
-  border-radius: 5px;
-  margin: .5% .5% .5% 1%;
+  /* border-radius: 5px; */
+  /* margin: 0% % 0% 0%; */
 }
 
 .nav-user {
@@ -30,8 +34,8 @@ nav {
 
 main {
   display:flex;
-  width: 98.5%;
-  height: 80vh;
+  width: 100%;
+  height: 100%;
 }
 
 .total-spending {
@@ -50,22 +54,96 @@ margin: .5% 1% .5% 51%
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  height:73vh;
-  width:100%;
+  height:100%;
+  width:58.5vw;
   background-color:darkcyan;
-  border-radius: 5px;
-  margin: .5% .5% .5% 1%
+  margin: .5% .5% 1% 0%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   }
 
-  .booking-container {
-    display:inline-block;
+  .booking-container,.result-container {
+    display:inline-flex;
+    align-items: center;
     font-size: 1.5vw;
     height: 14vh;
-    width:15vw;
+    width:25vw;
     margin: 2% 0% 0% 4%;
     font-size: 1.3vw;
+    background-color:cornflowerblue;
+    border-radius: 5px;
   }
 
   h1 {
     margin-left: 5%;
   }
+
+  .add-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width:40vw;
+    margin: .5% .5% .5% 0%; 
+    background-color:darkcyan;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .add-booking::-webkit-scrollbar, .main-panel::-webkit-scrollbar {
+    width: 1vw;
+    background-color:darkcyan;
+    background-size: 30vh;
+  }
+
+  .add-booking::-webkit-scrollbar-thumb, .main-panel::-webkit-scrollbar-thumb {
+    width: 1vw;
+    border-radius: 9px;
+    background-color:aliceblue;
+    background-size: 30vh;
+  }
+
+  .add-booking::-webkit-scrollbar-button, .main-panel::-webkit-scrollbar-button {
+    visibility: hidden;
+  }
+
+
+
+  #search-bar-date,#search-bar-room {
+    width: 10vw;
+    margin: .5% .5% .5% 1%;
+    border-radius: 3px;
+    border:none;
+    height: 4%;
+    width:60%
+  }
+
+
+#search-bookings {
+  background-color: aliceblue;
+  border-radius: 3px;
+  margin: 5% .5% .5% 1%;
+  border: none;
+  height: 3%;
+  width: 20%;
+}
+
+.make-booking {
+  background-color: aliceblue;
+  border-radius: 3px;
+  margin: 5% .5% .5% 40%;
+  border: none;
+}
+
+#make-booking:hover,#search-bookings:hover {
+  background-color:aquamarine;
+
+}
+
+.display-results {
+  margin: 5% .5% .5% 1%;
+}
+
+.hidden {
+  display: none;
+}
