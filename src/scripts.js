@@ -6,6 +6,7 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
+import './images/clipart895215.png';
 import { savePromises,postApi } from './apiCalls';
 import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,addBookingButton,userID, searchResults,displayBookingMadeMessage } from './domUpdates';
 
