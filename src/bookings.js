@@ -46,25 +46,6 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
     },0).toFixed(2)
 }
 
-const filterRoomsByDate = (date,rooms,bookings) => {
-  if(date === "" || date.length < 8) {
-    return "INVALID DATE"
-  }
-
-  return bookings.filter(booking => {
-      return booking.date !== date 
-    
-  }).reduce((acc,booking) => {
-    rooms.forEach(room => {
-      if(room.number === booking.roomNumber) {
-   acc.push(room)
-      }
-    })
-
-    return acc      
-  },[])
-
-}
 
 const filterRoomsByType = (date,type,rooms,bookings) => {
 
@@ -94,6 +75,5 @@ return availableRooms
 export {
     filterBookingsByUser,
     calculateTotalCostOfUsersBookings,
-    filterRoomsByDate,
     filterRoomsByType
 }

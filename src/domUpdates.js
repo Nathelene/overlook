@@ -1,7 +1,7 @@
 import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByDate,filterRoomsByType } from "./bookings";
 
 // Global Variables
-const customer = document.querySelector('.customer')
+let customer = document.querySelector('.customer')
 let totalSpent = document.querySelector('.total-spent')
 let totalBookings = document.querySelector('.all-bookings')
 let bookingButton = document.querySelector('#search-bookings')
