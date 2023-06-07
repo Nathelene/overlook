@@ -12,10 +12,6 @@
 <body>
   <nav>
     <h1>OVERLOOK BOOKING</h1>
-    <!-- <section class="total-spending">
-      <p>TOTAL SPENT</p>
-      <p class="total-spent">$$$</p>
-    </section> -->
     <section class="nav-user">
       <img class="user-icon" src="./images/clipart895215.png" alt="user-icon">
       <p class="customer">customer</p>
@@ -26,8 +22,14 @@
       <h3>Book Now</h3>
       <label for="search-bar-date">-Check In Date-</label>
       <input id="search-bar-date" type="text" name="search" placeholder="YYYY/MM/DD"><br>
-      <label for="search-bar-room">-Room Type-</label>
-      <input id="search-bar-room" type="text" name="search" placeholder="single room">
+      <!-- <label for="search-bar-room">-Room Type-</label>
+      <input id="search-bar-room" type="text" name="search" placeholder="single room"> -->
+      <label for="room-type">-Room Type-</label> 
+        <select name="room-type" id="room-type"> 
+          <option value="single room">Single Room</option> 
+          <option value="residential suite">Residential Suite</option> 
+          <option value="junior suite">Junior Suite</option> 
+        </select>
       <button id="search-bookings">SEARCH</button>
       <div class="display-results">
       </div>

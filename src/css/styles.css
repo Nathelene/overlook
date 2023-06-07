@@ -75,7 +75,7 @@ font-size: .95vw;
     margin: 2% 0% 0% 4%;
     padding-left: 1.5%;
     font-size: 1.1vw;
-    background-color:cornflowerblue;
+    background-color: cadetblue;
     border-radius: 3px;
   }
 
@@ -119,7 +119,7 @@ font-size: .95vw;
 
 
 
-  #search-bar-date,#search-bar-room {
+  #search-bar-date,#room-type {
     width: 10vw;
     margin: .5% .5% .5% 1%;
     border-radius: 3px;
@@ -130,7 +130,7 @@ font-size: .95vw;
 
 
 #search-bookings {
-  background-color: aliceblue;
+  background-color: cadetblue;
   border-radius: 20px;
   margin: 5% .5% .5% 1%;
   border: none;
@@ -139,14 +139,15 @@ font-size: .95vw;
 }
 
 .make-booking {
-  background-color: aliceblue;
-  border-radius: 3px;
+  background-color: white;
+  border-radius: 20px;
+  height:30%;
   margin: 5% .5% .5% 40%;
   border: none;
 }
 
 #make-booking:hover,#search-bookings:hover {
-  background-color:aquamarine;
+  background-color:white;
 
 }
 

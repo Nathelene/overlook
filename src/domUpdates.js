@@ -7,7 +7,7 @@ let totalBookings = document.querySelector('.all-bookings')
 let bookingButton = document.querySelector('#search-bookings')
 let searchResults = document.querySelector('.display-results')
 let userDateInput = document.querySelector('#search-bar-date')
-let userRoomInput = document.querySelector('#search-bar-room')
+let userRoomInput = document.querySelector('#room-type')
 let addBookingButton = document.querySelector('.make-booking')
 let userID
 
