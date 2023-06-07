@@ -1,20 +1,19 @@
-import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByDate,filterRoomsByType } from "./bookings";
+import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByType } from "./bookings";
 
 // Global Variables
-const customer = document.querySelector('.customer')
+let customer = document.querySelector('.customer')
 let totalSpent = document.querySelector('.total-spent')
 let totalBookings = document.querySelector('.all-bookings')
 let bookingButton = document.querySelector('#search-bookings')
 let searchResults = document.querySelector('.display-results')
 let userDateInput = document.querySelector('#search-bar-date')
-let userRoomInput = document.querySelector('#search-bar-room')
+let userRoomInput = document.querySelector('#room-type')
 let addBookingButton = document.querySelector('.make-booking')
 let userID
 
 
 
 // Event Handelers
-
 const getRandom = array => Math.floor(Math.random() * array.length);
 
 const loadNewUserInfo = (userData,rooms,bookings) => {
@@ -29,12 +28,11 @@ const loadNewUserInfo = (userData,rooms,bookings) => {
         `<div class ="booking-container box">
             <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
         </div>`
-      })
-    }
+      });
+    };
 
 
 const addNewBooking = (date,type,rooms,bookings) => {
-
 searchResults.innerHTML = ''
 let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
 
@@ -44,14 +42,14 @@ searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 <p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
 <button class="make-booking" id="${room.number}">BOOK ROOM</button>
 </div>`
-    })
+    });
 }
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     searchResults.innerHTML =  
     ` <p>NO ROOMS AVAILABLE</p>`
     }
  displayUserSearchError()
-}
+};
 
 const displayUserSearchError = () => {
     if(!userDateInput.value) {
@@ -68,13 +66,15 @@ const displayUserSearchError = () => {
         searchResults.innerHTML =  
         ` <p>PLEASE SELECT DATE AND ROOM TYPE</p>`
     } 
-}
+};
 
 const displayBookingMadeMessage = (date,roomNumber,type) => {
     searchResults.innerHTML =  
-    ` <p>THANK YOU! YOUR BOOKING HAS BEEN MADE FOR:<br>
-      ${date}  RoomNumber: ${roomNumber}  RoomType: ${type}
-    </p>`
+    ` <p>THANK YOU!</p>
+      <p>YOUR BOOKING HAS BEEN MADE FOR:</p>
+      <p>${date}</p>
+      <p>RoomType: ${type}</p>
+      <p>RoomNumber: ${roomNumber}</p>`
 }
 
 export {

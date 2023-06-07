@@ -7,16 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <title>Webpack Starter Kit</title>
+  <title>Overlook Bookings</title>
 </head>
 <body>
   <nav>
     <h1>OVERLOOK BOOKING</h1>
-    <section class="total-spending">
-      <p>TOTAL SPENT</p>
-      <p class="total-spent">$$$</p>
-    </section>
     <section class="nav-user">
+      <img class="user-icon" src="./images/clipart895215.png" alt="user-icon">
       <p class="customer">customer</p>
     </section>
   </nav>
@@ -24,10 +21,14 @@
     <section class="add-booking">
       <h3>Book Now</h3>
       <label for="search-bar-date">-Check In Date-</label>
-      <input id="search-bar-date" type="text" name="search" placeholder="YYYY/MM/DD" required><br>
-      <label for="search-bar-room">-Room Type-</label>
-      <input id="search-bar-room" type="text" name="search" placeholder="single room" required>
-      <!-- <input id="search-bookings" type="submit"> -->
+      <input id="search-bar-date" type="text" name="search" placeholder="YYYY/MM/DD"><br>
+      <label for="room-type">-Room Type-</label> 
+        <select name="room-type" id="room-type"> 
+          <option value="suite">Suite</option> 
+          <option value="single room">Single Room</option> 
+          <option value="residential suite">Residential Suite</option> 
+          <option value="junior suite">Junior Suite</option> 
+        </select>
       <button id="search-bookings">SEARCH</button>
       <div class="display-results">
       </div>
@@ -35,6 +36,10 @@
     <section class="main-panel">
       <h2>MY BOOKINGS</h2>
       <p class="all-bookings"></p>
+      <section class="total-spending">
+        <p>TOTAL SPENT</p>
+        <p class="total-spent">$$$</p>
+      </section>
     </section>
   </main>
   
