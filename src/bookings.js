@@ -32,7 +32,7 @@ if (usersBookings.length === 0) {
 
 
 const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
-  if (!customer.id) {
+  if (!customer.id || customer === '') {
     return "CUSTOMER NOT FOUND"
   }
     return rooms.reduce((acc,room) => {

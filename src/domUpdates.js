@@ -14,7 +14,6 @@ let userID
 
 
 // Event Handelers
-
 const getRandom = array => Math.floor(Math.random() * array.length);
 
 const loadNewUserInfo = (userData,rooms,bookings) => {
@@ -29,12 +28,11 @@ const loadNewUserInfo = (userData,rooms,bookings) => {
         `<div class ="booking-container box">
             <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
         </div>`
-      })
-    }
+      });
+    };
 
 
 const addNewBooking = (date,type,rooms,bookings) => {
-
 searchResults.innerHTML = ''
 let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
 
@@ -44,14 +42,14 @@ searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 <p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
 <button class="make-booking" id="${room.number}">BOOK ROOM</button>
 </div>`
-    })
+    });
 }
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     searchResults.innerHTML =  
     ` <p>NO ROOMS AVAILABLE</p>`
     }
  displayUserSearchError()
-}
+};
 
 const displayUserSearchError = () => {
     if(!userDateInput.value) {
@@ -68,7 +66,7 @@ const displayUserSearchError = () => {
         searchResults.innerHTML =  
         ` <p>PLEASE SELECT DATE AND ROOM TYPE</p>`
     } 
-}
+};
 
 const displayBookingMadeMessage = (date,roomNumber,type) => {
     searchResults.innerHTML =  

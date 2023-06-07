@@ -43,12 +43,11 @@ bookingButton.addEventListener('click', () => {
     
 });
 
-
 searchResults.addEventListener('click', event => {
     date = userDateInput.value
     type = userRoomInput.value
     roomNumber = Number(event.target.id)
     postApi(userID,date,roomNumber)
     displayBookingMadeMessage(date,roomNumber,type)
-    })
+    });
 
