@@ -35,14 +35,19 @@ const addNewBooking = (date,type,rooms,bookings) => {
 
 searchResults.innerHTML = ''
 let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
+
+if(availableRoomsByType !== 'NO ROOMS AVAILABLE') {  
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box">
 <p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
 <button id="make-booking">BOOK ROOM</button>
 </div>`
-})
-
-
+    })
+} 
+if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
+    searchResults.innerHTML =  
+    ` <p>NO ROOMS AVAILABLE</p>`
+    }
 
 }
 
@@ -58,5 +63,5 @@ bookingButton,
 searchResults,
 userDateInput,
 userRoomInput,
-// date
+
 }
