@@ -70,9 +70,11 @@ const displayUserSearchError = () => {
     } 
 }
 
-const displayBookingMadeMessage = () => {
+const displayBookingMadeMessage = (date,roomNumber,type) => {
     searchResults.innerHTML =  
-    ` <p>THANK YOU! YOUR BOOKING HAS BEEN MADE</p>`
+    ` <p>THANK YOU! YOUR BOOKING HAS BEEN MADE FOR:<br>
+      ${date}  RoomNumber: ${roomNumber}  RoomType: ${type}
+    </p>`
 }
 
 export {
