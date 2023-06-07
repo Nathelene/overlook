@@ -34,14 +34,13 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
     if (username.value.length === 9) {
     userID = Number(username.value.slice(-1))
     }
+     currentUser = userData.find(user => {
+        return user.id === userID
+    })
 
     if(username.value === `customer${userID}` && password.value === 'overlook2021') { 
     loginPage.classList.add('hidden')
     mainPage.classList.remove('hidden')
-    currentUser = userData.find(user => {
-        return user.id = userID
-    })
-
     customer.innerText = currentUser.name
     totalSpent.innerText = `$${calculateTotalCostOfUsersBookings(currentUser,rooms,bookings)}`
     userBookings = filterBookingsByUser(currentUser,rooms,bookings)
