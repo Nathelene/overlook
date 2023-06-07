@@ -43,7 +43,7 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
         }
       })
       return acc
-    },0)
+    },0).toFixed(2)
 }
 
 const filterRoomsByDate = (date,rooms,bookings) => {
