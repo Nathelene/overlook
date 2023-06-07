@@ -20,6 +20,7 @@ let obj = {}
   acc.push(obj)
   return acc      
 },[])
+
 if (usersBookings.length === 0) {
   return "YOU HAVE 0 BOOKINGS"
   } 

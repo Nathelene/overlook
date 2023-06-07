@@ -1,4 +1,4 @@
-import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByDate,filterRoomsByType } from "./bookings";
+import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByType } from "./bookings";
 
 // Global Variables
 let customer = document.querySelector('.customer')

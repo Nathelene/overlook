@@ -1,6 +1,6 @@
 import chai from 'chai';
 const expect = chai.expect;
-import { filterBookingsByUser,calculateTotalCostOfUsersBookings ,filterRoomsByDate,filterRoomsByType} from '../src/bookings';
+import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByType} from '../src/bookings';
 import { customerTestData, bookingTestData, roomTestData } from '../src/data/test-data.js'
 
 describe('filterBookingsByUser', function() {
