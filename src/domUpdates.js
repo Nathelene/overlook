@@ -28,8 +28,13 @@ const displayUserLogin = () => {
 }
 
 const loadUserOnLogin = (userData,rooms,bookings) => {
+    if (username.value.length === 10) {
      userID = Number(username.value.slice(-2))
-     
+    }
+    if (username.value.length === 9) {
+    userID = Number(username.value.slice(-1))
+    }
+
     if(username.value === `customer${userID}` && password.value === 'overlook2021') { 
     loginPage.classList.add('hidden')
     mainPage.classList.remove('hidden')
