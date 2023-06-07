@@ -17,7 +17,15 @@
       <p class="customer">customer</p>
     </section>
   </nav>
-  <main>
+  <section class="user-login hidden">
+    <h2>Login</h2>
+    <label for="search-bar-username">username:</label>
+    <input id="search-bar-username" type="text" name="search" placeholder="username"><br>
+    <label for="search-bar-pw">password:</label>
+    <input id="search-bar-pw" type="text" name="search" placeholder="password"><br>
+    <button class="login-button">Login</button>
+  </section>`
+  <main class="hidden">
     <section class="add-booking">
       <h3>Book Now</h3>
       <label for="search-bar-date">-Check In Date-</label>
@@ -34,7 +42,7 @@
       </div>
     </section>
     <section class="main-panel">
-      <h2>MY BOOKINGS</h2>
+      <h4>MY BOOKINGS</h4>
       <p class="all-bookings"></p>
       <section class="total-spending">
         <p>TOTAL SPENT</p>
@@ -42,7 +50,6 @@
       </section>
     </section>
   </main>
-  
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 

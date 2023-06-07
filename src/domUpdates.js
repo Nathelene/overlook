@@ -9,27 +9,47 @@ let searchResults = document.querySelector('.display-results')
 let userDateInput = document.querySelector('#search-bar-date')
 let userRoomInput = document.querySelector('#room-type')
 let addBookingButton = document.querySelector('.make-booking')
+let mainPage = document.querySelector("main")
+let loginPage = document.querySelector(".user-login")
+let username = document.querySelector("#search-bar-username")
+let password = document.querySelector("#search-bar-pw")
+let loginButton = document.querySelector(".login-button")
 let userID
+let currentUser
+let userBookings
 
 
 
 // Event Handelers
-const getRandom = array => Math.floor(Math.random() * array.length);
 
-const loadNewUserInfo = (userData,rooms,bookings) => {
-    let userIndex = getRandom(userData) 
-    userID = userData[userIndex].id
-    customer.innerText = userData[userIndex].name
-    let user = userData[userIndex]
-    totalSpent.innerText = `$${calculateTotalCostOfUsersBookings(user,rooms,bookings)}`
-    let usersBookings = filterBookingsByUser(user,rooms,bookings)
-    usersBookings.forEach(booking => {
-        totalBookings.innerHTML += 
-        `<div class ="booking-container box">
-            <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
-        </div>`
-      });
-    };
+const displayUserLogin = () => {
+    
+    loginPage.classList.remove('hidden')
+}
+
+const loadUserOnLogin = (userData,rooms,bookings) => {
+     userID = Number(username.value.slice(-2))
+     
+    if(username.value === `customer${userID}` && password.value === 'overlook2021') { 
+    loginPage.classList.add('hidden')
+    mainPage.classList.remove('hidden')
+    currentUser = userData.find(user => {
+        return user.id = userID
+    })
+
+    customer.innerText = currentUser.name
+    totalSpent.innerText = `$${calculateTotalCostOfUsersBookings(currentUser,rooms,bookings)}`
+    userBookings = filterBookingsByUser(currentUser,rooms,bookings)
+    userBookings.forEach(booking => {
+    totalBookings.innerHTML += 
+    `<div class ="booking-container box">
+        <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
+    </div>`
+    });
+ }
+
+};
+
 
 
 const addNewBooking = (date,type,rooms,bookings) => {
@@ -75,7 +95,9 @@ const displayBookingMadeMessage = (date,roomNumber,type) => {
       <p>${date}</p>
       <p>RoomType: ${type}</p>
       <p>RoomNumber: ${roomNumber}</p>`
-}
+};
+
+
 
 export {
 customer,
@@ -87,9 +109,15 @@ searchResults,
 userDateInput,
 userRoomInput,
 addBookingButton,
+mainPage,
+username,
+password,
+loginButton,
+currentUser,
+userBookings,
 addNewBooking,
-getRandom,
-loadNewUserInfo,
 displayUserSearchError,
-displayBookingMadeMessage
+displayBookingMadeMessage,
+displayUserLogin,
+loadUserOnLogin
 }

@@ -8,7 +8,7 @@ import './css/styles.css';
 import './images/turing-logo.png';
 import './images/clipart895215.png';
 import { savePromises,postApi } from './apiCalls';
-import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,addBookingButton,userID, searchResults,displayBookingMadeMessage } from './domUpdates';
+import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,displayUserLogin,loginButton,loadUserOnLogin,currentUser,usersBookings } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -21,13 +21,7 @@ let roomNumber;
 
 // Event Listeners
 window.addEventListener('load', () => {
-    savePromises()
-        .then(data => {
-            customers = data[0].customers
-            rooms = data[1].rooms
-            bookings = data[2].bookings
-            loadNewUserInfo(customers,rooms,bookings)
-        });
+     displayUserLogin()
 });
 
 bookingButton.addEventListener('click', () => {
@@ -51,3 +45,13 @@ searchResults.addEventListener('click', event => {
     displayBookingMadeMessage(date,roomNumber,type)
     });
 
+loginButton.addEventListener('click', () => {
+    savePromises()
+    .then(data => {
+        customers = data[0].customers
+        rooms = data[1].rooms
+        bookings = data[2].bookings
+        loadUserOnLogin(customers,rooms,bookings)
+    });
+
+});

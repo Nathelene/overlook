@@ -3,7 +3,7 @@ const filterBookingsByUser = (customer,rooms,bookings) => {
   if (customer === "") {
     return "USER NOT FOUND"
   }
-  let usersBookings= bookings.filter(booking => {
+  let usersBookings = bookings.filter(booking => {
       
     return booking.userID === customer.id
   
