@@ -6,8 +6,8 @@ import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
-import { savePromises } from './apiCalls';
-import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput } from './domUpdates';
+import { savePromises,postApi } from './apiCalls';
+import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,addBookingButton,userID, searchResults } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -16,6 +16,7 @@ let rooms;
 let bookings;
 let date;
 let type;
+let roomNumber;
 
 // Event Listeners
 window.addEventListener('load', () => {
@@ -39,8 +40,14 @@ bookingButton.addEventListener('click', () => {
         addNewBooking(date,type,rooms,bookings)
     });
     
-  
-
 });
 
+
+
+
+    searchResults.addEventListener('click', event => {
+    date = userDateInput.value
+    roomNumber = Number(event.target.id)
+    postApi(userID,date,roomNumber)
+    })
 
