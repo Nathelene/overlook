@@ -13,10 +13,12 @@ body {
 
 nav {
   display:flex;
-  width:99vw;
-  height:16vh;
-  background-color: cadetblue;
+  width:95vw;
+  height:14vh;
+  /* background-color: cadetblue; */
+  margin-left: 2%;
   align-items: center;
+  border-bottom: solid;
 }
 
 .nav-user {
@@ -25,8 +27,8 @@ nav {
   align-items: center;
   width:10vw;
   height:12vh;
-  margin: .75% 1% 1% 67%;
-  background-color:cadetblue;
+  margin: .75% 1% 1% 65.5%;
+  /* background-color:cadetblue; */
   border-color: black;
   border-radius: 5px;
   font-size: .95vw;
@@ -35,8 +37,15 @@ nav {
 .user-login {
 display:flex;
 align-items: center;
+justify-content: center;
 flex-direction: column;
-margin: .5% 5% 1% 3%;
+height:75vh;
+width: 90vw;
+margin: 2% 0% 1% 0%;
+margin-left: 4.5%;
+background-image: url('../images/pexels-engin-akyurt-2725675.jpg');
+background-size: cover;
+color:white
 }
 
 .login-button {
@@ -64,10 +73,10 @@ flex-direction: column;
 align-items: center;
 width:20vw;
 height:12vh;
-background-color:cadetblue;
-border-radius: 3px;
-margin: .5% 1% 3% 5%;
+margin: .5% 8% 3% 5%;
 font-size: .95vw;
+border-bottom: solid;
+border-top: solid;
 }
 
 .total-spent {
@@ -79,9 +88,8 @@ font-size: .95vw;
   flex-wrap: wrap;
   justify-content: center;
   height:81.5vh;
-  width:58.5vw;
-  background-color:darkcyan;
-  margin: .5% .5% 1% 0%;
+  width:30.5vw;
+  margin: 0% .5% 5% 0%;
   overflow-y: scroll;
   overflow-x: hidden;
   }
@@ -96,7 +104,7 @@ font-size: .95vw;
     padding-left: 1.5%;
     font-size: 1.1vw;
     background-color: cadetblue;
-    border-radius: 3px;
+    border-radius: 3px; 
   }
 
   h1 {
@@ -108,28 +116,35 @@ font-size: .95vw;
     font-size: 3.2vh;
   }
 
+  h4 {
+    font-size: 3.2vh;
+  }
+
   .add-booking {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 81.5vh;
-    width:40vw;
-    margin: .5% .5% .5% 0%; 
-    background-color:darkcyan;
+    height: 76vh;
+    width:63vw;
+    margin: 1% .5% .5% 0%; 
+    margin-left: 3%;
+    background-image: url('../images/pexels-engin-akyurt-2725675.jpg');
+    color:white;
+    background-size:cover;
     overflow-y: scroll;
     overflow-x: hidden;
   }
 
   .add-booking::-webkit-scrollbar, .main-panel::-webkit-scrollbar {
     width: 1vw;
-    background-color:darkcyan;
+    background-color:transparent;
     background-size: 30vh;
   }
 
   .add-booking::-webkit-scrollbar-thumb, .main-panel::-webkit-scrollbar-thumb {
     width: 1vw;
     border-radius: 9px;
-    background-color:aliceblue;
+    background-color:gray;
     background-size: 30vh;
   }
 
@@ -150,6 +165,9 @@ font-size: .95vw;
 
 
 #search-bookings {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   background-color: cadetblue;
   border-radius: 20px;
   margin: 5% .5% .5% 1%;
@@ -179,6 +197,21 @@ font-size: .95vw;
   padding-top: 5%;
   height: 5vh
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+#bed-icon {
+  /* display:flex;
+  align-items: flex-end; */
+  margin-left: 50%;
+}
+
 
 .hidden {
   display: none;
