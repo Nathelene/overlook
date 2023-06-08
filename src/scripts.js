@@ -8,8 +8,9 @@ import './css/styles.css';
 import './images/turing-logo.png';
 import './images/clipart895215.png';
 import './images/pexels-engin-akyurt-2725675.jpg';
+
 import { savePromises,postApi } from './apiCalls';
-import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,displayUserLogin,loginButton,loadUserOnLogin,currentUser,usersBookings } from './domUpdates';
+import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,displayUserLogin,loginButton,loadUserOnLogin,currentUser,usersBookings,bookingResult } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 

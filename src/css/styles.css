@@ -193,6 +193,42 @@ border-top: solid;
   margin: 5% .5% .5% 1%;
 }
 
+.booking-result {
+  background-color: white;
+  margin: -1% 4% 0% 4%;
+  /* padding-left: 1.5%; */
+  font-size: 1vw;
+  border-radius: 3px;
+  width: 27vw;
+  height:17vh;
+  /* border-bottom: solid; */
+  color: black;
+}
+
+.booking-result-text {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  font-size: 1vw;
+  border-bottom: solid;
+  border-top: solid;
+  margin: 2% 4% 0% 4%;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* /* width:20vw; */
+  /* height:12vh; */ 
+  margin: 8% 8% 3% 5%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  font-size: 1vw;
+  border-bottom: solid;
+  border-top: solid;
+}
+
 .user-icon {
   padding-top: 5%;
   height: 5vh

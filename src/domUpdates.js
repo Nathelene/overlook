@@ -6,6 +6,7 @@ let totalSpent = document.querySelector('.total-spent')
 let totalBookings = document.querySelector('.all-bookings')
 let bookingButton = document.querySelector('#search-bookings')
 let searchResults = document.querySelector('.display-results')
+let bookingResult = document.querySelector('.booking-result')
 let userDateInput = document.querySelector('#search-bar-date')
 let userRoomInput = document.querySelector('#room-type')
 let addBookingButton = document.querySelector('.make-booking')
@@ -55,12 +56,12 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
 };
 
 
-
 const addNewBooking = (date,type,rooms,bookings) => {
 searchResults.innerHTML = ''
 let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
 
-if(availableRoomsByType !== 'NO ROOMS AVAILABLE') {  
+if(availableRoomsByType !== 'NO ROOMS AVAILABLE') { 
+     bookingResult.classList.add('hidden') 
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 <p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
@@ -77,30 +78,40 @@ if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
 
 const displayUserSearchError = () => {
     if(!userDateInput.value) {
+        searchResults.innerHTML = ''
+        bookingResult.classList.remove('hidden')
         userDateInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
-        searchResults.innerHTML =  
-        ` <p>PLEASE SELECT DATE</p>`
+        bookingResult.innerHTML = 
+        ` <div class="error-message"><p>PLEASE SELECT DATE</p></div>`
     }
     if(!userRoomInput.value) {
+        searchResults.innerHTML = ''
+        bookingResult.classList.remove('hidden')
         userRoomInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
-        searchResults.innerHTML =  
-        ` <p>PLEASE SELECT ROOM TYPE</p>`
+        bookingResult.innerHTML =  
+        ` <div class="error-message"><p>PLEASE SELECT ROOM TYPE</p></div>`
     } 
     if(!userRoomInput.value && !userDateInput.value){
-        searchResults.innerHTML =  
-        ` <p>PLEASE SELECT DATE AND ROOM TYPE</p>`
+        searchResults.innerHTML = ''
+        bookingResult.classList.remove('hidden')
+        bookingResult.innerHTML =  
+        ` <div class="error-message"><p>PLEASE SELECT DATE AND ROOM TYPE</p></div>`
     } 
 };
 
 const displayBookingMadeMessage = (date,roomNumber,type) => {
-    searchResults.innerHTML =  
-    ` <p>THANK YOU!</p>
-      <p>YOUR BOOKING HAS BEEN MADE FOR:</p>
-      <p>${date}</p>
-      <p>RoomType: ${type}</p>
-      <p>RoomNumber: ${roomNumber}</p>`
+    searchResults.innerHTML = ''
+    bookingResult.classList.remove('hidden')
+    bookingResult.innerHTML = 
+    `<div class=booking-result-text>
+     <p>THANK YOU!</p>
+      <p>YOUR BOOKING HAS BEEN MADE FOR:<br/>
+      ${date}<br/>
+      </p>
+      </div>`
 };
-
+// RoomType: ${type}<br/>
+// RoomNumber: ${roomNumber}</p>`
 
 
 export {
@@ -119,6 +130,7 @@ password,
 loginButton,
 currentUser,
 userBookings,
+bookingResult,
 addNewBooking,
 displayUserSearchError,
 displayBookingMadeMessage,
