@@ -7,8 +7,10 @@ import './css/styles.css';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png';
 import './images/clipart895215.png';
+import './images/pexels-engin-akyurt-2725675.jpg';
+
 import { savePromises,postApi } from './apiCalls';
-import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,addBookingButton,userID, searchResults,displayBookingMadeMessage } from './domUpdates';
+import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,displayUserLogin,loginButton,loadUserOnLogin,currentUser,usersBookings,loginPage } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -19,15 +21,10 @@ let date;
 let type;
 let roomNumber;
 
+
 // Event Listeners
 window.addEventListener('load', () => {
-    savePromises()
-        .then(data => {
-            customers = data[0].customers
-            rooms = data[1].rooms
-            bookings = data[2].bookings
-            loadNewUserInfo(customers,rooms,bookings)
-        });
+    loginPage.classList.remove('hidden')
 });
 
 bookingButton.addEventListener('click', () => {
@@ -38,7 +35,7 @@ bookingButton.addEventListener('click', () => {
         bookings = data[2].bookings
         date = userDateInput.value
         type = userRoomInput.value
-        addNewBooking(date,type,rooms,bookings)
+        addNewBooking(date,type,rooms,bookings,userID)
     });
     
 });
@@ -47,7 +44,19 @@ searchResults.addEventListener('click', event => {
     date = userDateInput.value
     type = userRoomInput.value
     roomNumber = Number(event.target.id)
+    if(event.target.className === 'make-booking'){
     postApi(userID,date,roomNumber)
     displayBookingMadeMessage(date,roomNumber,type)
+        }
     });
 
+loginButton.addEventListener('click', () => {
+    savePromises()
+    .then(data => {
+        customers = data[0].customers
+        rooms = data[1].rooms
+        bookings = data[2].bookings
+        loadUserOnLogin(customers,rooms,bookings)
+    });
+
+});

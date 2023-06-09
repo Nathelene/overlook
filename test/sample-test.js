@@ -19,6 +19,10 @@ describe('filterBookingsByUser', function() {
     const result = filterBookingsByUser("",roomTestData,bookingTestData)
     expect(result).to.deep.equal("USER NOT FOUND")
   })
+  it('should return an error message if user id is not provided', function() {
+    const result = filterBookingsByUser({"id":null,"name":"Leatha Ullrich"},roomTestData,bookingTestData)
+    expect(result).to.deep.equal("USER NOT FOUND")
+  })
 });
 
 describe('calculateTotalCostOfUserBookings', function() {
@@ -35,6 +39,10 @@ describe('calculateTotalCostOfUserBookings', function() {
     })
     it('should return error message if customer is not provided',function() {
       const result = calculateTotalCostOfUsersBookings('',roomTestData,bookingTestData)
+      expect(result).to.deep.equal("CUSTOMER NOT FOUND")
+    })
+    it('should return error message if customer passed in only as name',function() {
+      const result = calculateTotalCostOfUsersBookings('Leatha Ullrich',roomTestData,bookingTestData)
       expect(result).to.deep.equal("CUSTOMER NOT FOUND")
     })
   });
@@ -64,14 +72,14 @@ describe('calculateTotalCostOfUserBookings', function() {
     it('should return error message if room type is not selected', function() {
       const result = filterRoomsByType("2022/02/10","",roomTestData,bookingTestData)
       expect(result).to.equal('NO ROOMS AVAILABLE')
-  });
-  it('should return error message if date is not selected', function() {
-    const result = filterRoomsByType("","king room",roomTestData,bookingTestData)
-    expect(result).to.equal('NO ROOMS AVAILABLE')
-  });
-  it('should return error message if user passes in letters', function() {
-    const result = filterRoomsByType("monday","king room",roomTestData,bookingTestData)
-    expect(result).to.equal('NO ROOMS AVAILABLE')
-  });
-  });
+    });
+    it('should return error message if date is not selected', function() {
+      const result = filterRoomsByType("","king room",roomTestData,bookingTestData)
+      expect(result).to.equal('NO ROOMS AVAILABLE')
+    });
+    it('should return error message if user passes in letters', function() {
+      const result = filterRoomsByType("monday","king room",roomTestData,bookingTestData)
+      expect(result).to.equal('NO ROOMS AVAILABLE')
+    });
+    });
  
