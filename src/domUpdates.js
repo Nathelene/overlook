@@ -63,7 +63,6 @@ searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 </div>`
  });
 }
-
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     searchResults.innerHTML = ''
     bookingResult.classList.remove('hidden')
@@ -95,22 +94,17 @@ const displayUserSearchError = () => {
         bookingResult.innerHTML =  
         ` <div class="error-message"><p>PLEASE SELECT ROOM TYPE</p></div>`
     } 
-    if(!userRoomInput.value && !userDateInput.value){
-        searchResults.innerHTML = ''
-        bookingResult.classList.remove('hidden')
-        bookingResult.innerHTML =  
-        ` <div class="error-message"><p>PLEASE SELECT DATE AND ROOM TYPE</p></div>`
-    } 
 };
 
-const displayBookingMadeMessage = (date) => {
+const displayBookingMadeMessage = (date,roomNumber,type) => {
  searchResults.innerHTML = ''
  bookingResult.classList.remove('hidden')
  bookingResult.innerHTML = 
      `<div class=booking-result-text>
-     <p>THANK YOU!</p>
-     <p>YOUR BOOKING HAS BEEN MADE FOR:<br/>
-     ${date}<br/>
+     <p>YOUR BOOKING IS CONFIRMED. THANK YOU!<br/>
+     ${date}<br>
+      Room: ${roomNumber}<br>
+     ${type} 
      </p>
      </div>`
 };
