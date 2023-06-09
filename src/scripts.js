@@ -21,6 +21,7 @@ let date;
 let type;
 let roomNumber;
 
+
 // Event Listeners
 window.addEventListener('load', () => {
      displayUserLogin()
