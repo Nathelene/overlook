@@ -13,20 +13,19 @@ const filterBookingsByUser = (customer,rooms,bookings) => {
     })
     acc.push(obj)
     return acc      
-  },[])
-  if (customer === '' || !customer.id) {
-    return "USER NOT FOUND"
-  }
-  if (usersBookings.length === 0) {
-    return "YOU HAVE 0 BOOKINGS"
-    } else {
-    return usersBookings
-  }
-  
+    },[])
+    if (customer === '' || !customer.id || typeof customer === Number) {
+      return "USER NOT FOUND"
+    }
+    if (usersBookings.length === 0) {
+      return "YOU HAVE 0 BOOKINGS"
+      } else {
+      return usersBookings
+    }
 }
 
 const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
-  if (!customer.id || customer === '') {
+  if (!customer.id || customer === '' || typeof customer === Number) {
     return "CUSTOMER NOT FOUND"
   }
     return rooms.reduce((acc,room) => {
@@ -43,24 +42,21 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
 
 
 const filterRoomsByType = (date,type,rooms,bookings) => {
-// if(date.length !== 10 || date.indexOf('/') !== 4) {
-//   return 'DATE INVALID'
-// }
 
 let allUnavailableRooms = bookings.reduce((acc,booking) => {
-  if(booking.date === date) {
-    acc.push(booking.roomNumber)
-  }
-  return acc
-},[])
+    if(booking.date === date) {
+      acc.push(booking.roomNumber)
+    }
+    return acc
+  },[])
 
-let allAvailableRooms = rooms.filter(room => !allUnavailableRooms.includes(room.number) && room.roomType === type)
-if(!allAvailableRooms.length ){
-  return "NO ROOMS AVAILABLE"
-} else if (date.length !== 10 || date.indexOf('/') !== 4) {
-  return 'DATE INVALID'
-}
-return allAvailableRooms
+  let allAvailableRooms = rooms.filter(room => !allUnavailableRooms.includes(room.number) && room.roomType === type)
+    if(!allAvailableRooms.length ){
+      return "NO ROOMS AVAILABLE"
+    } else if (date.length !== 10 || date.indexOf('/') !== 4) {
+      return 'DATE INVALID'
+    }
+  return allAvailableRooms
 
 }
 

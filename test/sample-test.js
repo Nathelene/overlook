@@ -23,6 +23,14 @@ describe('filterBookingsByUser', function() {
     const result = filterBookingsByUser({"id":null,"name":"Leatha Ullrich"},roomTestData,bookingTestData)
     expect(result).to.deep.equal("USER NOT FOUND")
   })
+  it('should return an error message if user is passed in as string', function() {
+    const result = filterBookingsByUser("Leatha Ullrich",roomTestData,bookingTestData)
+    expect(result).to.deep.equal("USER NOT FOUND")
+  })
+  it('should return an error message if a user is passed in as a number', function() {
+    const result = filterBookingsByUser( 8 ,roomTestData,bookingTestData)
+    expect(result).to.deep.equal("USER NOT FOUND")
+  })
 });
 
 describe('calculateTotalCostOfUserBookings', function() {
@@ -43,6 +51,10 @@ describe('calculateTotalCostOfUserBookings', function() {
     })
     it('should return error message if customer passed in only as name',function() {
       const result = calculateTotalCostOfUsersBookings('Leatha Ullrich',roomTestData,bookingTestData)
+      expect(result).to.deep.equal("CUSTOMER NOT FOUND")
+    })
+    it('should return error message if customer passed in as a number',function() {
+      const result = calculateTotalCostOfUsersBookings(8,roomTestData,bookingTestData)
       expect(result).to.deep.equal("CUSTOMER NOT FOUND")
     })
   });

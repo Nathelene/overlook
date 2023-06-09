@@ -46,7 +46,7 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
         <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
     </div>`
     });
- }
+  }
 
 };
 
@@ -68,7 +68,7 @@ if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     bookingResult.classList.remove('hidden')
     bookingResult.innerHTML =  
     ` <div class="none-available"><p>NO ROOMS AVAILABLE</p></div`
-    }
+}
 if(availableRoomsByType === 'DATE INVALID' ) {
     searchResults.innerHTML = ''
     bookingResult.classList.remove('hidden')
@@ -80,20 +80,20 @@ if(availableRoomsByType === 'DATE INVALID' ) {
 
 
 const displayUserSearchError = () => {
-    if(!userDateInput.value) {
-        searchResults.innerHTML = ''
-        bookingResult.classList.remove('hidden')
-        userDateInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
-        bookingResult.innerHTML = 
-        ` <div class="error-message"><p>PLEASE SELECT DATE</p></div>`
+  if(!userDateInput.value) {
+     searchResults.innerHTML = ''
+     bookingResult.classList.remove('hidden')
+     userDateInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
+     bookingResult.innerHTML = 
+     ` <div class="error-message"><p>PLEASE SELECT DATE</p></div>`
     }
     if(!userRoomInput.value) {
-        searchResults.innerHTML = ''
-        bookingResult.classList.remove('hidden')
-        userRoomInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
-        bookingResult.innerHTML =  
-        ` <div class="error-message"><p>PLEASE SELECT ROOM TYPE</p></div>`
-    } 
+     searchResults.innerHTML = ''
+     bookingResult.classList.remove('hidden')
+     userRoomInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
+     bookingResult.innerHTML =  
+     ` <div class="error-message"><p>PLEASE SELECT ROOM TYPE</p></div>`
+  } 
 };
 
 const displayBookingMadeMessage = (date,roomNumber,type) => {
