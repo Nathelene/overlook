@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByType} from '../src/bookings';
-import { customerTestData, bookingTestData, roomTestData } from '../src/data/test-data.js'
+import { bookingTestData, roomTestData } from '../src/data/test-data.js'
 
 describe('filterBookingsByUser', function() {
   it('should be a funnction', function() {
@@ -16,7 +16,7 @@ describe('filterBookingsByUser', function() {
     expect(result).to.deep.equal("YOU HAVE 0 BOOKINGS")
   })
   it('should return an error message if there is no user is given', function() {
-    const result = filterBookingsByUser("",roomTestData,bookingTestData)
+    const result = filterBookingsByUser('',roomTestData,bookingTestData)
     expect(result).to.deep.equal("USER NOT FOUND")
   })
   it('should return an error message if user id is not provided', function() {
@@ -89,7 +89,7 @@ describe('calculateTotalCostOfUserBookings', function() {
       const result = filterRoomsByType("","king room",roomTestData,bookingTestData)
       expect(result).to.equal('NO ROOMS AVAILABLE')
     });
-    it('should return error message if user passes in letters', function() {
+    it('should return error message if user passes in a string', function() {
       const result = filterRoomsByType("monday","king room",roomTestData,bookingTestData)
       expect(result).to.equal('NO ROOMS AVAILABLE')
     });

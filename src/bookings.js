@@ -22,7 +22,7 @@ const filterBookingsByUser = (customer,rooms,bookings) => {
       } else {
       return usersBookings
     }
-}
+};
 
 const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
   if (!customer.id || customer === '' || typeof customer === Number) {
@@ -38,7 +38,7 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
       })
       return acc
     },0).toFixed(2)
-}
+};
 
 
 const filterRoomsByType = (date,type,rooms,bookings) => {
@@ -57,8 +57,7 @@ let allUnavailableRooms = bookings.reduce((acc,booking) => {
       return 'DATE INVALID'
     }
   return allAvailableRooms
-
-}
+};
 
 
 export {
