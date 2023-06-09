@@ -35,7 +35,7 @@ bookingButton.addEventListener('click', () => {
         bookings = data[2].bookings
         date = userDateInput.value
         type = userRoomInput.value
-        addNewBooking(date,type,rooms,bookings,userID)
+        addNewBooking(date,type,rooms,bookings)
     });
     
 });

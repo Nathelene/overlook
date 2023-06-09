@@ -50,11 +50,11 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
 
 };
 
-const addNewBooking = (date,type,rooms,bookings,userID) => {
+const addNewBooking = (date,type,rooms,bookings) => {
 searchResults.innerHTML = ''
-let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,userID)
+let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
 bookingResult.classList.add('hidden') 
-if(availableRoomsByType !== 'NO ROOMS AVAILABLE') { 
+if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DATE INVALID') { 
 
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
@@ -70,6 +70,12 @@ if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     bookingResult.innerHTML =  
     ` <div class="none-available"><p>NO ROOMS AVAILABLE</p></div`
     }
+if(availableRoomsByType === 'DATE INVALID' ) {
+    searchResults.innerHTML = ''
+    bookingResult.classList.remove('hidden')
+    bookingResult.innerHTML =  
+    ` <div class="none-available"><p>DATE INVALID</p></div`
+ }
  displayUserSearchError()
 };
 
