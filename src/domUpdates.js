@@ -56,12 +56,14 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
 };
 
 
-const addNewBooking = (date,type,rooms,bookings) => {
+const addNewBooking = (date,type,rooms,bookings,userID) => {
 searchResults.innerHTML = ''
-let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
-
+let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,userID)
+bookingResult.classList.add('hidden') 
+console.log(availableRoomsByType)
 if(availableRoomsByType !== 'NO ROOMS AVAILABLE') { 
-     bookingResult.classList.add('hidden') 
+
+
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 <p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
@@ -69,12 +71,15 @@ searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 </div>`
     });
 }
+
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     searchResults.innerHTML =  
     ` <p>NO ROOMS AVAILABLE</p>`
     }
  displayUserSearchError()
 };
+
+
 
 const displayUserSearchError = () => {
     if(!userDateInput.value) {
@@ -99,7 +104,8 @@ const displayUserSearchError = () => {
     } 
 };
 
-const displayBookingMadeMessage = (date,roomNumber,type) => {
+
+const displayBookingMadeMessage = (date) => {
     searchResults.innerHTML = ''
     bookingResult.classList.remove('hidden')
     bookingResult.innerHTML = 
@@ -110,8 +116,6 @@ const displayBookingMadeMessage = (date,roomNumber,type) => {
       </p>
       </div>`
 };
-// RoomType: ${type}<br/>
-// RoomNumber: ${roomNumber}</p>`
 
 
 export {

@@ -10,7 +10,7 @@ import './images/clipart895215.png';
 import './images/pexels-engin-akyurt-2725675.jpg';
 
 import { savePromises,postApi } from './apiCalls';
-import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,displayUserLogin,loginButton,loadUserOnLogin,currentUser,usersBookings,bookingResult } from './domUpdates';
+import { loadNewUserInfo, bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,displayUserLogin,loginButton,loadUserOnLogin,currentUser,usersBookings } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -35,7 +35,7 @@ bookingButton.addEventListener('click', () => {
         bookings = data[2].bookings
         date = userDateInput.value
         type = userRoomInput.value
-        addNewBooking(date,type,rooms,bookings)
+        addNewBooking(date,type,rooms,bookings,userID)
     });
     
 });
@@ -44,8 +44,10 @@ searchResults.addEventListener('click', event => {
     date = userDateInput.value
     type = userRoomInput.value
     roomNumber = Number(event.target.id)
+    if(event.target.className === 'make-booking'){
     postApi(userID,date,roomNumber)
     displayBookingMadeMessage(date,roomNumber,type)
+        }
     });
 
 loginButton.addEventListener('click', () => {
