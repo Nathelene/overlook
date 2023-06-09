@@ -23,10 +23,6 @@ let userBookings
 
 // Event Handelers
 
-const displayUserLogin = () => {
-    loginPage.classList.remove('hidden')
-}
-
 const loadUserOnLogin = (userData,rooms,bookings) => {
     if (username.value.length === 10) {
      userID = Number(username.value.slice(-2))
@@ -69,8 +65,10 @@ searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 }
 
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
-    searchResults.innerHTML =  
-    ` <p>NO ROOMS AVAILABLE</p>`
+    searchResults.innerHTML = ''
+    bookingResult.classList.remove('hidden')
+    bookingResult.innerHTML =  
+    ` <div class="none-available"><p>NO ROOMS AVAILABLE</p></div`
     }
  displayUserSearchError()
 };
@@ -99,17 +97,16 @@ const displayUserSearchError = () => {
     } 
 };
 
-
 const displayBookingMadeMessage = (date) => {
-    searchResults.innerHTML = ''
-    bookingResult.classList.remove('hidden')
-    bookingResult.innerHTML = 
-    `<div class=booking-result-text>
+ searchResults.innerHTML = ''
+ bookingResult.classList.remove('hidden')
+ bookingResult.innerHTML = 
+     `<div class=booking-result-text>
      <p>THANK YOU!</p>
-      <p>YOUR BOOKING HAS BEEN MADE FOR:<br/>
-      ${date}<br/>
-      </p>
-      </div>`
+     <p>YOUR BOOKING HAS BEEN MADE FOR:<br/>
+     ${date}<br/>
+     </p>
+     </div>`
 };
 
 
@@ -128,11 +125,11 @@ username,
 password,
 loginButton,
 currentUser,
+loginPage,
 userBookings,
 bookingResult,
 addNewBooking,
 displayUserSearchError,
 displayBookingMadeMessage,
-displayUserLogin,
 loadUserOnLogin
 }
