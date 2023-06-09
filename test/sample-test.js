@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { filterBookingsByUser,calculateTotalCostOfUsersBookings,filterRoomsByType} from '../src/bookings';
-import { customerTestData, bookingTestData, roomTestData } from '../src/data/test-data.js'
+import { bookingTestData, roomTestData } from '../src/data/test-data.js'
 
 describe('filterBookingsByUser', function() {
   it('should be a funnction', function() {
@@ -16,11 +16,19 @@ describe('filterBookingsByUser', function() {
     expect(result).to.deep.equal("YOU HAVE 0 BOOKINGS")
   })
   it('should return an error message if there is no user is given', function() {
-    const result = filterBookingsByUser("",roomTestData,bookingTestData)
+    const result = filterBookingsByUser('',roomTestData,bookingTestData)
     expect(result).to.deep.equal("USER NOT FOUND")
   })
   it('should return an error message if user id is not provided', function() {
     const result = filterBookingsByUser({"id":null,"name":"Leatha Ullrich"},roomTestData,bookingTestData)
+    expect(result).to.deep.equal("USER NOT FOUND")
+  })
+  it('should return an error message if user is passed in as string', function() {
+    const result = filterBookingsByUser("Leatha Ullrich",roomTestData,bookingTestData)
+    expect(result).to.deep.equal("USER NOT FOUND")
+  })
+  it('should return an error message if a user is passed in as a number', function() {
+    const result = filterBookingsByUser( 8 ,roomTestData,bookingTestData)
     expect(result).to.deep.equal("USER NOT FOUND")
   })
 });
@@ -43,6 +51,10 @@ describe('calculateTotalCostOfUserBookings', function() {
     })
     it('should return error message if customer passed in only as name',function() {
       const result = calculateTotalCostOfUsersBookings('Leatha Ullrich',roomTestData,bookingTestData)
+      expect(result).to.deep.equal("CUSTOMER NOT FOUND")
+    })
+    it('should return error message if customer passed in as a number',function() {
+      const result = calculateTotalCostOfUsersBookings(8,roomTestData,bookingTestData)
       expect(result).to.deep.equal("CUSTOMER NOT FOUND")
     })
   });
@@ -77,7 +89,7 @@ describe('calculateTotalCostOfUserBookings', function() {
       const result = filterRoomsByType("","king room",roomTestData,bookingTestData)
       expect(result).to.equal('NO ROOMS AVAILABLE')
     });
-    it('should return error message if user passes in letters', function() {
+    it('should return error message if user passes in a string', function() {
       const result = filterRoomsByType("monday","king room",roomTestData,bookingTestData)
       expect(result).to.equal('NO ROOMS AVAILABLE')
     });

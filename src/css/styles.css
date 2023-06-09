@@ -118,7 +118,7 @@ h4 {
   font-size: 3.2vh;
 }
 
-  .add-booking {
+.add-booking {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -159,7 +159,6 @@ h4 {
   width:60%;
 }
 
-
 #search-bookings {
   display:flex;
   align-items: center;
@@ -180,8 +179,8 @@ h4 {
   border: none;
 }
 
-#make-booking:hover,#search-bookings:hover {
-  background-color:white;
+.make-booking:hover,#search-bookings:hover,.login-button:hover {
+  background-color:darkcyan;
 }
 
 .display-results {
@@ -201,10 +200,10 @@ h4 {
 .booking-result-text {
   padding-left: 1.5%;
   padding-right: 1.5%;
-  font-size: 1vw;
+  font-size: .8vw;
   border-bottom: solid;
   border-top: solid;
-  margin: 2% 4% 0% 4%;
+  margin: 4% 4% 0% 4%;
 }
 
 .error-message,.none-available {
@@ -212,9 +211,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 12% 8% 3% 5%;
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+  margin: 9% 8% 3% 5%;
   font-size: 1vw;
   border-bottom: solid;
   border-top: solid;

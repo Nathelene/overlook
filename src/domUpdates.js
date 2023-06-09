@@ -46,15 +46,15 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
         <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
     </div>`
     });
- }
+  }
 
 };
 
-const addNewBooking = (date,type,rooms,bookings,userID) => {
+const addNewBooking = (date,type,rooms,bookings) => {
 searchResults.innerHTML = ''
-let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,userID)
+let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
 bookingResult.classList.add('hidden') 
-if(availableRoomsByType !== 'NO ROOMS AVAILABLE') { 
+if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DATE INVALID') { 
 
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
@@ -63,48 +63,48 @@ searchResults.innerHTML +=  `<div class ="result-container box" role="button">
 </div>`
  });
 }
-
 if(availableRoomsByType === 'NO ROOMS AVAILABLE') {
     searchResults.innerHTML = ''
     bookingResult.classList.remove('hidden')
     bookingResult.innerHTML =  
     ` <div class="none-available"><p>NO ROOMS AVAILABLE</p></div`
-    }
+}
+if(availableRoomsByType === 'DATE INVALID' ) {
+    searchResults.innerHTML = ''
+    bookingResult.classList.remove('hidden')
+    bookingResult.innerHTML =  
+    ` <div class="none-available"><p>DATE INVALID</p></div`
+ }
  displayUserSearchError()
 };
 
 
 const displayUserSearchError = () => {
-    if(!userDateInput.value) {
-        searchResults.innerHTML = ''
-        bookingResult.classList.remove('hidden')
-        userDateInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
-        bookingResult.innerHTML = 
-        ` <div class="error-message"><p>PLEASE SELECT DATE</p></div>`
+  if(!userDateInput.value) {
+     searchResults.innerHTML = ''
+     bookingResult.classList.remove('hidden')
+     userDateInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
+     bookingResult.innerHTML = 
+     ` <div class="error-message"><p>PLEASE SELECT DATE</p></div>`
     }
     if(!userRoomInput.value) {
-        searchResults.innerHTML = ''
-        bookingResult.classList.remove('hidden')
-        userRoomInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
-        bookingResult.innerHTML =  
-        ` <div class="error-message"><p>PLEASE SELECT ROOM TYPE</p></div>`
-    } 
-    if(!userRoomInput.value && !userDateInput.value){
-        searchResults.innerHTML = ''
-        bookingResult.classList.remove('hidden')
-        bookingResult.innerHTML =  
-        ` <div class="error-message"><p>PLEASE SELECT DATE AND ROOM TYPE</p></div>`
-    } 
+     searchResults.innerHTML = ''
+     bookingResult.classList.remove('hidden')
+     userRoomInput.placeHolder = "PLEASE FILL OUT THIS FIELD"
+     bookingResult.innerHTML =  
+     ` <div class="error-message"><p>PLEASE SELECT ROOM TYPE</p></div>`
+  } 
 };
 
-const displayBookingMadeMessage = (date) => {
+const displayBookingMadeMessage = (date,roomNumber,type) => {
  searchResults.innerHTML = ''
  bookingResult.classList.remove('hidden')
  bookingResult.innerHTML = 
      `<div class=booking-result-text>
-     <p>THANK YOU!</p>
-     <p>YOUR BOOKING HAS BEEN MADE FOR:<br/>
-     ${date}<br/>
+     <p>YOUR BOOKING IS CONFIRMED. THANK YOU!<br/>
+     ${date}<br>
+      Room: ${roomNumber}<br>
+     ${type} 
      </p>
      </div>`
 };
