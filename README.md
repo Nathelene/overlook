@@ -37,13 +37,18 @@ and run it in a seperate tab in your terminal each time you run the app
 </td><td valign="top" width="33%">
 
 ## WINS + CHALLENGES
-  - Wins: Successfully utilized Fetch Api with little experience, and implemented a user login page
-  -Challenges: Preventing the user from booking a single room twice
-  -Reflections: Implementig a project board and creating a written out plan for myself was very benificial to my    organizational proccess.
+  - Wins: Successfully utilized Fetch Api with little experience, and implemented a user login page<br>
+  - Challenges: Preventing the user from booking a single room twice<br>
+  - Reflections: Implementig a project board and creating a written out plan for myself was very benificial to my organizational proccess
+
+## PREVIEW
+
+![ezgif com-gif-maker (3)](https://github.com/Nathelene/overlook/assets/121268293/4b877b2c-b545-4bb6-b96b-4eef63c20a17)
 
 ## CONTRIBUTORS :
   - [Natalie Baker](https://github.com/Nathelene)
 
+  
 ## Deploying to GitHub Pages
 
 _If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
