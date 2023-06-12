@@ -1,6 +1,5 @@
 
 const filterBookingsByUser = (customer,rooms,bookings) => {
-
   let usersBookings = bookings.filter(booking =>  booking.userID === customer.id).reduce((acc,booking) => {
 
     let obj = {}
@@ -40,9 +39,7 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
     },0).toFixed(2)
 };
 
-
 const filterRoomsByType = (date,type,rooms,bookings,currentDate) => {
-
 let allUnavailableRooms = bookings.reduce((acc,booking) => {
     if(booking.date === date.split("-").join("/")) {
       acc.push(booking.roomNumber)
