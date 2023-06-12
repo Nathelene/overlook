@@ -52,6 +52,7 @@ nav {
   height:5vh;
   width: 7vw;
   border-radius:20px;
+  margin-bottom: 3%;
 }
 
 #search-bar-username,#search-bar-pw {
@@ -100,9 +101,14 @@ main {
   width:25vw;
   margin: 2% 0% 0% 4%;
   padding-left: 1.5%;
-  font-size: 1.1vw;
+  font-size: 1vw;
   background-color: cadetblue;
   border-radius: 3px; 
+  border: solid;
+  border-color: black;
+  color:black;
+  justify-content: space-between;
+  padding-right: 3%;
 }
 
 h1 {
@@ -134,15 +140,15 @@ h4 {
 }
 
 .add-booking::-webkit-scrollbar, .main-panel::-webkit-scrollbar {
-  width: 1vw;
+  width: .5vw;
   background-color:transparent;
   background-size: 30vh;
 }
 
 .add-booking::-webkit-scrollbar-thumb, .main-panel::-webkit-scrollbar-thumb {
-  width: 1vw;
+  width: .5vw;
   border-radius: 9px;
-  background-color:gray;
+  background-color:rgba(0, 0, 0, 0.665);
   background-size: 30vh;
 }
 
@@ -175,8 +181,9 @@ h4 {
   background-color: white;
   border-radius: 20px;
   height:30%;
-  margin: 5% .5% .5% 40%;
+  margin: 5% .5% .5% 0%;
   border: none;
+  font-size: .9vw;
 }
 
 .make-booking:hover,#search-bookings:hover,.login-button:hover {
@@ -187,7 +194,7 @@ h4 {
   margin: 5% .5% .5% 1%;
 }
 
-.booking-result {
+.booking-result,.login-error {
   background-color: white;
   margin: -1% 4% 0% 4%;
   font-size: 1vw;
@@ -196,6 +203,7 @@ h4 {
   height:17vh;
   color: black;
 }
+
 
 .booking-result-text {
   padding-left: 1.5%;

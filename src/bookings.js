@@ -54,7 +54,7 @@ let allUnavailableRooms = bookings.reduce((acc,booking) => {
   let allAvailableRooms = rooms.filter(room => !allUnavailableRooms.includes(room.number) && room.roomType === type)
     if(!allAvailableRooms.length ){
       return "NO ROOMS AVAILABLE"
-    } else if (date.length !== 10 ) {
+    } else if (date.length !== 10 || date[3] < 3) {
       return 'DATE INVALID'
     }
   return allAvailableRooms

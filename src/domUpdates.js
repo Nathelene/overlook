@@ -15,6 +15,7 @@ let loginPage = document.querySelector(".user-login")
 let username = document.querySelector("#search-bar-username")
 let password = document.querySelector("#search-bar-pw")
 let loginButton = document.querySelector(".login-button")
+let loginErrorMessage = document.querySelector(".login-error")
 let userID
 let currentUser
 let userBookings
@@ -42,12 +43,14 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
     userBookings = filterBookingsByUser(currentUser,rooms,bookings)
     userBookings.forEach(booking => {
     totalBookings.innerHTML += 
-    `<div class ="booking-container box">
+    `<div class="booking-container box">
         <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
     </div>`
     });
   } else if (password.value !== 'overlook2021') {
-    
+    loginErrorMessage.classList.remove("hidden")
+    loginErrorMessage.innerHTML = 
+    `<div class="error-message"><p>INCORRECT USERNAME OR PASSWORD</p></div>`
   }
 
 };
@@ -60,7 +63,7 @@ if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DA
 
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
-<p>${room.roomType}<br>${room.bedSize}<br>Cost: $${room.costPerNight}</p>
+<p>Room Type: ${room.roomType}<br>Bed(s): ${room.numBeds} ${room.bedSize}<br>Cost: $${room.costPerNight}</p>
 <button class="make-booking" id="${room.number}">BOOK ROOM</button>
 </div>`
  });
@@ -130,6 +133,7 @@ currentUser,
 loginPage,
 userBookings,
 bookingResult,
+loginErrorMessage,
 addNewBooking,
 displayUserSearchError,
 displayBookingMadeMessage,
