@@ -22,7 +22,21 @@ let userBookings
 
 
 
+
 // Event Handelers
+
+const makeDate = () => {
+  const date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  if(month < 10)
+  month = '0' + month.toString();
+  if(day < 10)
+  day = '0' + day.toString()
+  let currentDate = `${year}-${month}-${day}`;
+  return currentDate
+  }
 
 const loadUserOnLogin = (userData,rooms,bookings) => {
     if (username.value.length === 10) {
@@ -55,9 +69,9 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
 
 };
 
-const addNewBooking = (date,type,rooms,bookings) => {
+const addNewBooking = (date,type,rooms,bookings,currentDate) => {
 searchResults.innerHTML = ''
-let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
+let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,currentDate)
 bookingResult.classList.add('hidden') 
 if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DATE INVALID') { 
 
@@ -137,5 +151,6 @@ loginErrorMessage,
 addNewBooking,
 displayUserSearchError,
 displayBookingMadeMessage,
-loadUserOnLogin
+loadUserOnLogin,
+makeDate,
 }
