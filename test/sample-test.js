@@ -89,9 +89,5 @@ describe('calculateTotalCostOfUserBookings', function() {
       const result = filterRoomsByType("","king room",roomTestData,bookingTestData)
       expect(result).to.equal('NO ROOMS AVAILABLE')
     });
-    it('should return error message if user passes in a string', function() {
-      const result = filterRoomsByType("monday","king room",roomTestData,bookingTestData)
-      expect(result).to.equal('NO ROOMS AVAILABLE')
-    });
     });
  

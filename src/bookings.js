@@ -44,7 +44,8 @@ const calculateTotalCostOfUsersBookings = (customer,rooms,bookings) => {
 const filterRoomsByType = (date,type,rooms,bookings) => {
 
 let allUnavailableRooms = bookings.reduce((acc,booking) => {
-    if(booking.date === date) {
+    if(booking.date === date.split("-").join("/")) {
+      console.log(date)
       acc.push(booking.roomNumber)
     }
     return acc
@@ -53,7 +54,7 @@ let allUnavailableRooms = bookings.reduce((acc,booking) => {
   let allAvailableRooms = rooms.filter(room => !allUnavailableRooms.includes(room.number) && room.roomType === type)
     if(!allAvailableRooms.length ){
       return "NO ROOMS AVAILABLE"
-    } else if (date.length !== 10 || date.indexOf('/') !== 4) {
+    } else if (date.length !== 10 ) {
       return 'DATE INVALID'
     }
   return allAvailableRooms

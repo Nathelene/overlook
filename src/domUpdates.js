@@ -46,6 +46,8 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
         <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
     </div>`
     });
+  } else if (password.value !== 'overlook2021') {
+    
   }
 
 };
@@ -58,7 +60,7 @@ if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DA
 
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
-<p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
+<p>${room.roomType}<br>${room.bedSize}<br>Cost: $${room.costPerNight}</p>
 <button class="make-booking" id="${room.number}">BOOK ROOM</button>
 </div>`
  });

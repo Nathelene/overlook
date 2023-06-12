@@ -37,7 +37,8 @@ bookingButton.addEventListener('click', () => {
 });
 
 searchResults.addEventListener('click', event => {
-    date = userDateInput.value
+    date = userDateInput.value.split("-").join("/")
+    console.log(date)
     type = userRoomInput.value
     roomNumber = Number(event.target.id)
     if(event.target.className === 'make-booking'){
