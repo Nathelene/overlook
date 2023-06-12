@@ -25,7 +25,7 @@ let userBookings
 
 // Event Handelers
 
-const makeDate = () => {
+const makeCurrentDate = () => {
   const date = new Date();
   let day = date.getDate();
   let month = date.getMonth() + 1;
@@ -58,7 +58,7 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
     userBookings.forEach(booking => {
     totalBookings.innerHTML += 
     `<div class="booking-container box">
-        <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
+        <p>DATE: ${booking.date}<br>ROOM TYPE: ${booking.roomType.toUpperCase()}<br>COST: $${booking.cost}</p>
     </div>`
     });
   } else if (password.value !== 'overlook2021') {
@@ -75,9 +75,11 @@ let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,currentDat
 bookingResult.classList.add('hidden') 
 if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DATE INVALID') { 
 
+
+
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
-<p>Room Type: ${room.roomType}<br>Bed(s): ${room.numBeds} ${room.bedSize}<br>Cost: $${room.costPerNight}</p>
+<p>${room.roomType.toUpperCase()}, ${room.numBeds} ${room.bedSize.toUpperCase()} BED(s)<br>COST: $${room.costPerNight}</p>
 <button class="make-booking" id="${room.number}">BOOK ROOM</button>
 </div>`
  });
@@ -122,8 +124,8 @@ const displayBookingMadeMessage = (date,roomNumber,type) => {
      `<div class=booking-result-text>
      <p>YOUR BOOKING IS CONFIRMED. THANK YOU!<br/>
      ${date}<br>
-      Room: ${roomNumber}<br>
-     ${type} 
+      ROOM: ${roomNumber}<br>
+     - ${type.toUpperCase()} -
      </p>
      </div>`
 };
@@ -152,5 +154,5 @@ addNewBooking,
 displayUserSearchError,
 displayBookingMadeMessage,
 loadUserOnLogin,
-makeDate,
+makeCurrentDate,
 }

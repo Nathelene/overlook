@@ -2,11 +2,10 @@
 // Do not delete or rename this file ********
 
 import './css/styles.css';
-import './images/turing-logo.png';
 import './images/clipart895215.png';
 import './images/pexels-engin-akyurt-2725675.jpg';
 import { savePromises,postApi } from './apiCalls';
-import { bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,loginButton,loadUserOnLogin,loginPage, makeDate } from './domUpdates';
+import { bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,loginButton,loadUserOnLogin,loginPage, makeCurrentDate } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -32,7 +31,7 @@ bookingButton.addEventListener('click', () => {
         bookings = data[2].bookings
         date = userDateInput.value
         type = userRoomInput.value
-        todaysDate = makeDate()
+        todaysDate = makeCurrentDate()
         addNewBooking(date,type,rooms,bookings,todaysDate)
     });
     
