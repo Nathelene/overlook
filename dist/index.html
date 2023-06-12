@@ -25,12 +25,13 @@
     <label for="search-bar-pw">password:</label>
     <input id="search-bar-pw" type="text" name="search" placeholder="password"><br>
     <button class="login-button">Login</button>
-  </section>`
+    <div class="login-error hidden"></div>
+  </section>
   <main class="hidden">
     <section class="add-booking">
       <h3>Book Now</h3>
       <label for="search-bar-date">-Check In Date-</label>
-      <input id="search-bar-date" type="text" name="search" placeholder="YYYY/MM/DD"><br>
+      <input id="search-bar-date" type="date" name="search"><br>
       <label for="room-type">-Room Type-</label> 
         <select name="room-type" id="room-type"> 
           <option value="suite">Suite</option> 

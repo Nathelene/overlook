@@ -2,11 +2,10 @@
 // Do not delete or rename this file ********
 
 import './css/styles.css';
-import './images/turing-logo.png';
 import './images/clipart895215.png';
 import './images/pexels-engin-akyurt-2725675.jpg';
 import { savePromises,postApi } from './apiCalls';
-import { bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,loginButton,loadUserOnLogin,loginPage } from './domUpdates';
+import { bookingButton, addNewBooking,userDateInput,userRoomInput,userID, searchResults,displayBookingMadeMessage,loginButton,loadUserOnLogin,loginPage, makeCurrentDate } from './domUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -16,6 +15,7 @@ let bookings;
 let date;
 let type;
 let roomNumber;
+let todaysDate;
 
 
 // Event Listeners
@@ -31,13 +31,14 @@ bookingButton.addEventListener('click', () => {
         bookings = data[2].bookings
         date = userDateInput.value
         type = userRoomInput.value
-        addNewBooking(date,type,rooms,bookings)
+        todaysDate = makeCurrentDate()
+        addNewBooking(date,type,rooms,bookings,todaysDate)
     });
     
 });
 
 searchResults.addEventListener('click', event => {
-    date = userDateInput.value
+    date = userDateInput.value.split("-").join("/")
     type = userRoomInput.value
     roomNumber = Number(event.target.id)
     if(event.target.className === 'make-booking'){

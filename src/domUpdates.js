@@ -15,13 +15,28 @@ let loginPage = document.querySelector(".user-login")
 let username = document.querySelector("#search-bar-username")
 let password = document.querySelector("#search-bar-pw")
 let loginButton = document.querySelector(".login-button")
+let loginErrorMessage = document.querySelector(".login-error")
 let userID
 let currentUser
 let userBookings
 
 
 
+
 // Event Handelers
+
+const makeCurrentDate = () => {
+  const date = new Date();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  if(month < 10)
+  month = '0' + month.toString();
+  if(day < 10)
+  day = '0' + day.toString()
+  let currentDate = `${year}-${month}-${day}`;
+  return currentDate
+  }
 
 const loadUserOnLogin = (userData,rooms,bookings) => {
     if (username.value.length === 10) {
@@ -42,23 +57,29 @@ const loadUserOnLogin = (userData,rooms,bookings) => {
     userBookings = filterBookingsByUser(currentUser,rooms,bookings)
     userBookings.forEach(booking => {
     totalBookings.innerHTML += 
-    `<div class ="booking-container box">
-        <p>Date: ${booking.date}<br>Room Type: ${booking.roomType}<br>Cost: $${booking.cost}</p>
+    `<div class="booking-container box">
+        <p>DATE: ${booking.date}<br>ROOM TYPE: ${booking.roomType.toUpperCase()}<br>COST: $${booking.cost}</p>
     </div>`
     });
+  } else if (password.value !== 'overlook2021') {
+    loginErrorMessage.classList.remove("hidden")
+    loginErrorMessage.innerHTML = 
+    `<div class="error-message"><p>INCORRECT USERNAME OR PASSWORD</p></div>`
   }
 
 };
 
-const addNewBooking = (date,type,rooms,bookings) => {
+const addNewBooking = (date,type,rooms,bookings,currentDate) => {
 searchResults.innerHTML = ''
-let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings)
+let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,currentDate)
 bookingResult.classList.add('hidden') 
 if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DATE INVALID') { 
 
+
+
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
-<p>${room.roomType}<br>${room.bedSize}<br>Cost: ${room.costPerNight}</p>
+<p>${room.roomType.toUpperCase()}, ${room.numBeds} ${room.bedSize.toUpperCase()} BED(s)<br>COST: $${room.costPerNight}</p>
 <button class="make-booking" id="${room.number}">BOOK ROOM</button>
 </div>`
  });
@@ -103,8 +124,8 @@ const displayBookingMadeMessage = (date,roomNumber,type) => {
      `<div class=booking-result-text>
      <p>YOUR BOOKING IS CONFIRMED. THANK YOU!<br/>
      ${date}<br>
-      Room: ${roomNumber}<br>
-     ${type} 
+      ROOM: ${roomNumber}<br>
+     - ${type.toUpperCase()} -
      </p>
      </div>`
 };
@@ -128,8 +149,10 @@ currentUser,
 loginPage,
 userBookings,
 bookingResult,
+loginErrorMessage,
 addNewBooking,
 displayUserSearchError,
 displayBookingMadeMessage,
-loadUserOnLogin
+loadUserOnLogin,
+makeCurrentDate,
 }
