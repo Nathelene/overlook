@@ -36,7 +36,7 @@ const makeCurrentDate = () => {
   day = '0' + day.toString()
   let currentDate = `${year}-${month}-${day}`;
   return currentDate
-  }
+  };
 
 const loadUserOnLogin = (userData,rooms,bookings) => {
     if (username.value.length === 10) {
@@ -74,8 +74,6 @@ searchResults.innerHTML = ''
 let availableRoomsByType = filterRoomsByType(date,type,rooms,bookings,currentDate)
 bookingResult.classList.add('hidden') 
 if(availableRoomsByType !== 'NO ROOMS AVAILABLE' && availableRoomsByType !== 'DATE INVALID') { 
-
-
 
 availableRoomsByType.forEach(room => {
 searchResults.innerHTML +=  `<div class ="result-container box" role="button">
